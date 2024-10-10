@@ -26,13 +26,11 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/", require("./routes"));
 
-sequelize
-  .sync()
-  .then(() => {
-    app.listen(process.env.port, function (err) {
-      console.log(
-        `Server is running successfully on port:: ${process.env.port}!!`
-      );
-    });
-  })
-  .catch((err) => console.log(err));
+(async () => {
+  try {
+    await sequelize.sync({ force: false }); // force: true will drop existing tables
+    console.log("Database and tables created!");
+  } catch (error) {
+    console.error("Error creating tables:", error);
+  }
+})();
