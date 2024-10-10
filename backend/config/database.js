@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
   {
     dialect: "mysql",
     host: process.env.host,
+    port: process.env.port,
     dialectOptions: {
       ssl: {
         rejectUnauthorized: false, // Add this if your database requires SSL
