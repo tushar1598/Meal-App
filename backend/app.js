@@ -1,5 +1,4 @@
 const express = require("express");
-const port = 9000;
 const app = express();
 const path = require("path");
 const User = require("./models/user");
@@ -30,8 +29,10 @@ app.use("/", require("./routes"));
 sequelize
   .sync()
   .then(() => {
-    app.listen(port, function (err) {
-      console.log(`Server is running successfully on port:: ${port}!!`);
+    app.listen(process.env.port, function (err) {
+      console.log(
+        `Server is running successfully on port:: ${process.env.port}!!`
+      );
     });
   })
   .catch((err) => console.log(err));
