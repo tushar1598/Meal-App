@@ -28,7 +28,7 @@ app.use("/", require("./routes"));
 
 (async () => {
   try {
-    await sequelize.sync({ force: false }); // force: true will drop existing tables
+    await sequelize.sync(); // force: true will drop existing tables
     console.log("Database and tables created!");
   } catch (error) {
     console.error("Error creating tables:", error);
