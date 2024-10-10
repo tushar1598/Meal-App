@@ -8,6 +8,11 @@ const sequelize = new Sequelize(
   {
     dialect: "mysql",
     host: process.env.host,
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false, // Add this if your database requires SSL
+      },
+    },
   }
 );
 
