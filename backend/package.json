@@ -19,12 +19,11 @@
     "mysql2": "^3.11.3",
     "nodemailer": "^6.9.14",
     "razorpay": "^2.9.4",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.4"
   },
   "keywords": [
     "123"
   ],
   "author": "Mr.Tushar",
-  "license": "ISC",
-  "devDependencies": {}
+  "license": "ISC"
 }
