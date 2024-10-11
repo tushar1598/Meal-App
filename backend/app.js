@@ -26,11 +26,9 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/", require("./routes"));
 
-(async () => {
-  try {
-    await sequelize.sync(); // force: true will drop existing tables
+sequelize
+  .sync()
+  .then(() => {
     console.log("Database and tables created!");
-  } catch (error) {
-    console.error("Error creating tables:", error);
-  }
-})();
+  })
+  .catch((err) => console.error("Error creating tables:", err));
